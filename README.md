@@ -99,11 +99,11 @@ Stilbon Protocol is the glittering edge of DeFi intelligence, where advanced ana
 2. **Install dependencies**
    ```bash
    # Frontend
-   cd stilbon-frontend
+   cd frontend
    npm install
 
    # Backend  
-   cd ../stilbon-backend
+   cd ../backend
    npm install
 
    # AI Agent
@@ -198,12 +198,12 @@ Stilbon Protocol is the glittering edge of DeFi intelligence, where advanced ana
 ```
 stilbon-protocol/
 ├── stilbon-frontend/        # Next.js frontend application
-│   ├── src/
-│   │   ├── app/             # App router pages
-│   │   ├── components/      # React components
-│   │   ├── lib/            # Utility functions
-│   │   ├── types/          # TypeScript definitions
-│   │   └── styles/         # Global styles
+│   ├
+│   │---app/             # App router pages
+│   │---components/      # React components
+│   │---lib/            # Utility functions
+│   │---types/          # TypeScript definitions
+│   │---styles/         # Global styles
 │   ├── public/             # Static assets
 │   └── package.json
 ├── stilbon-backend/         # Next.js backend API
@@ -292,25 +292,25 @@ Please use the [Issue Template](./.github/ISSUE_TEMPLATE.md) when reporting bugs
 
 ## 📋 **Roadmap**
 
-### **Phase 1: Foundation (Q1 2024)**
+### **Phase 1: Foundation (Q1 2025)**
 - ✅ Core platform architecture
 - ✅ Basic liquidity management features
 - ✅ Starknet integration
 - ✅ AI agent development
 
-### **Phase 2: Intelligence (Q2 2024)**
+### **Phase 2: Intelligence (Q2 2025)**
 - 🔄 Advanced analytics suite
 - 🔄 Automated strategy execution
 - 🔄 Mobile application
 - 🔄 Multi-chain expansion
 
-### **Phase 3: Ecosystem (Q3 2024)**
+### **Phase 3: Ecosystem (Q3 2025)**
 - 📋 Institutional features
 - 📋 API marketplace
 - 📋 Third-party integrations
 - 📋 Governance token launch
 
-### **Phase 4: Scale (Q4 2024)**
+### **Phase 4: Scale (Q4 2025)**
 - 📋 Cross-chain liquidity
 - 📋 Advanced derivatives
 - 📋 Institutional custody
