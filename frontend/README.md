@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StilBon - Advanced DeFi Tool for Liquidity Management
 
-## Getting Started
+![alt text](stilbonLogo.png)
 
-First, run the development server:
+StilBon is an advanced tool designed to empower users in the DeFi ecosystem. It provides essential features such as:
 
+- **Impermanent Loss (IL) Calculator**: Accurately calculate potential IL for your liquidity positions.
+- **Simulations for Full-Range and CLMM Pools**: Visualize outcomes for different liquidity strategies.
+- **Automated Liquidity Management for CLMM**: Optimize your positions with AI-driven insights and automation.
+
+Built on **Starknet**, StilBon leverages cutting-edge blockchain technology to deliver fast and efficient data processing, empowering users with actionable insights into their liquidity strategies.
+
+---
+
+## Features
+
+1. **Impermanent Loss Calculator**: Understand the risks and performance of your liquidity pools with real-time calculations.
+2. **Simulations**: Experiment with different strategies and pool configurations to maximize your returns.
+3. **AI-Powered Liquidity Management**: Let StilBon optimize your CLMM pools, reducing manual effort and improving profitability.
+
+---
+
+## Tech Stack
+
+- **Frontend**: Next.js (React-based framework)
+- **Backend**: Node.js (v20.15.1)
+- **Blockchain**: Starknet and Ekubo Contracts
+- **Data Sources**: Oracles like Empiric Network for price feeds
+
+---
+
+## Prerequisites
+
+Before setting up StilBon, ensure you have the following:
+
+- Node.js v20.15.1
+- npm or yarn package manager
+- Git installed
+- Access to a Starknet-compatible wallet (e.g., ArgentX or Braavos)
+
+---
+
+## Setup Guide
+
+Follow these steps to set up and run StilBon locally:
+
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/undefined-org/stilbon.git
+cd stilbon
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
+Run the following command to install required packages:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Using npm:
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Using yarn:
+```bash
+yarn install
+```
 
-## Learn More
+<!-- ### 3. Configure Environment Variables
+Create a `.env` file in the root directory and configure the following variables:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+NEXT_PUBLIC_STARKNET_NETWORK=alpha-mainnet
+NEXT_PUBLIC_API_BASE_URL=https://api.stilbon.com
+NEXT_PUBLIC_EMPIRIC_ORACLE_ADDRESS=<oracle_contract_address>
+``` -->
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Replace `<oracle_contract_address>` with the actual address of the Empiric oracle or another compatible data source.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. Run the Development Server
+Start the Next.js development server:
 
-## Deploy on Vercel
+Using npm:
+```bash
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Using yarn:
+```bash
+yarn dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The app will be available at `http://localhost:3000`.
+
+### 4. Build for Production
+To create an optimized build for production:
+
+Using npm:
+```bash
+npm run build
+npm start
+```
+
+Using yarn:
+```bash
+yarn build
+yarn start
+```
+
+---
+
+## Usage
+
+1. Connect your Starknet wallet.
+2. Navigate to the desired tool (IL Calculator, Simulations, or Automated Management).
+3. Input the necessary data (e.g., token pairs, ranges, etc.) and get insights instantly.
+
+---
+
+## Contribution
+
+We welcome contributions to StilBon! Follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix:
+   ```bash
+   git checkout -b feature/new-feature
+   ```
+3. Commit your changes and push to your fork.
+4. Open a pull request to the main repository.
+
+---
+
+## License
+
+StilBon is licensed under the [MIT License](LICENSE).
+
+---
+
+For further assistance or inquiries, contact us at support@undefined.org.

@@ -1,0 +1,419 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Stilbon Protocol Design System */
+
+@font-face {
+  font-family: "StilbonBody";
+  src: url("/fonts/Inter_28pt-Light.ttf");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "StilbonBody";
+  src: url("/fonts/Inter_28pt-Regular.ttf");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "StilbonBody";
+  src: url("/fonts/Inter_28pt-SemiBold.ttf");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "StilbonDisplay";
+  src: url("/fonts/GT-America-Condensed-Black-Trial.otf");
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "StilbonLogo";
+  src: url("/fonts/Pirulen.otf");
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: 'StilbonBody', sans-serif;
+  font-weight: 400;
+}
+
+@layer base {
+  :root {
+    /* Stilbon Protocol Color Palette */
+    --stilbon-primary: 244 63 94;       /* Rose/Pink */
+    --stilbon-secondary: 139 69 183;    /* Purple */
+    --stilbon-accent: 59 130 246;       /* Blue */
+    --stilbon-cyan: 34 211 238;         /* Cyan */
+    --stilbon-silver: 192 192 192;      /* Silver */
+    --stilbon-platinum: 229 231 235;    /* Platinum */
+    
+    /* Neutral Palette */
+    --stilbon-gray-50: 249 250 251;
+    --stilbon-gray-100: 243 244 246;
+    --stilbon-gray-200: 229 231 235;
+    --stilbon-gray-300: 209 213 219;
+    --stilbon-gray-400: 156 163 175;
+    --stilbon-gray-500: 107 114 128;
+    --stilbon-gray-600: 75 85 99;
+    --stilbon-gray-700: 55 65 81;
+    --stilbon-gray-800: 31 41 55;
+    --stilbon-gray-900: 17 24 39;
+    --stilbon-gray-950: 9 14 21;
+
+    /* Semantic Colors */
+    --background: 9 14 21;                /* stilbon-gray-950 */
+    --foreground: 249 250 251;           /* stilbon-gray-50 */
+    --card: 17 24 39;                    /* stilbon-gray-900 */
+    --card-foreground: 243 244 246;     /* stilbon-gray-100 */
+    --popover: 31 41 55;                 /* stilbon-gray-800 */
+    --popover-foreground: 249 250 251;   /* stilbon-gray-50 */
+    --primary: 244 63 94;                /* stilbon-primary */
+    --primary-foreground: 255 255 255;
+    --secondary: 55 65 81;               /* stilbon-gray-700 */
+    --secondary-foreground: 243 244 246; /* stilbon-gray-100 */
+    --muted: 31 41 55;                   /* stilbon-gray-800 */
+    --muted-foreground: 156 163 175;     /* stilbon-gray-400 */
+    --accent: 139 69 183;                /* stilbon-secondary */
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;            /* Red */
+    --destructive-foreground: 255 255 255;
+    --border: 55 65 81;                  /* stilbon-gray-700 */
+    --input: 31 41 55;                   /* stilbon-gray-800 */
+    --ring: 244 63 94;                   /* stilbon-primary */
+    --radius: 0.75rem;
+
+    /* Chart Colors */
+    --chart-1: 244 63 94;   /* stilbon-primary */
+    --chart-2: 139 69 183;  /* stilbon-secondary */
+    --chart-3: 59 130 246;  /* stilbon-accent */
+    --chart-4: 34 211 238;  /* stilbon-cyan */
+    --chart-5: 192 192 192; /* stilbon-silver */
+  }
+
+  .light {
+    --background: 255 255 255;
+    --foreground: 17 24 39;              /* stilbon-gray-900 */
+    --card: 249 250 251;                 /* stilbon-gray-50 */
+    --card-foreground: 17 24 39;         /* stilbon-gray-900 */
+    --popover: 255 255 255;
+    --popover-foreground: 17 24 39;      /* stilbon-gray-900 */
+    --primary: 244 63 94;                /* stilbon-primary */
+    --primary-foreground: 255 255 255;
+    --secondary: 243 244 246;            /* stilbon-gray-100 */
+    --secondary-foreground: 17 24 39;    /* stilbon-gray-900 */
+    --muted: 249 250 251;                /* stilbon-gray-50 */
+    --muted-foreground: 107 114 128;     /* stilbon-gray-500 */
+    --accent: 139 69 183;                /* stilbon-secondary */
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;            /* Red */
+    --destructive-foreground: 255 255 255;
+    --border: 229 231 235;               /* stilbon-gray-200 */
+    --input: 249 250 251;                /* stilbon-gray-50 */
+    --ring: 244 63 94;                   /* stilbon-primary */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    background: radial-gradient(circle at 20% 80%, rgba(244, 63, 94, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 80% 20%, rgba(139, 69, 183, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 70%),
+                hsl(var(--background));
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
+@layer components {
+  /* Stilbon Protocol Button Styles */
+  .stilbon-button {
+    @apply relative overflow-hidden;
+    @apply px-6 py-3 rounded-xl font-semibold;
+    @apply bg-gradient-to-r from-primary via-accent to-secondary;
+    @apply text-white transition-all duration-300;
+    @apply hover:shadow-lg hover:shadow-primary/25;
+    @apply hover:scale-105 active:scale-95;
+    @apply border border-white/20;
+  }
+
+  .stilbon-button::before {
+    @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0;
+    @apply transform -skew-x-12 -translate-x-full;
+    @apply transition-transform duration-700;
+    content: '';
+  }
+
+  .stilbon-button:hover::before {
+    @apply translate-x-full;
+  }
+
+  .stilbon-button-outline {
+    @apply relative overflow-hidden;
+    @apply px-6 py-3 rounded-xl font-semibold;
+    @apply bg-transparent text-primary;
+    @apply border-2 border-primary/50;
+    @apply transition-all duration-300;
+    @apply hover:bg-primary hover:text-white;
+    @apply hover:shadow-lg hover:shadow-primary/25;
+    @apply hover:scale-105 active:scale-95;
+  }
+
+  /* Glass Card */
+  .stilbon-glass {
+    @apply relative;
+    @apply bg-white/5 backdrop-blur-sm;
+    @apply border border-white/10;
+    @apply rounded-2xl;
+    @apply shadow-xl shadow-black/20;
+  }
+
+  .stilbon-glass::before {
+    @apply absolute inset-0 rounded-2xl;
+    @apply bg-gradient-to-br from-white/10 via-transparent to-white/5;
+    @apply pointer-events-none;
+    content: '';
+  }
+
+  /* Gradient Text */
+  .stilbon-gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Animated Background */
+  .stilbon-animated-bg {
+    @apply relative overflow-hidden;
+    background: linear-gradient(-45deg, 
+      hsl(var(--primary) / 0.1), 
+      hsl(var(--accent) / 0.1), 
+      hsl(var(--secondary) / 0.1), 
+      hsl(var(--stilbon-cyan) / 0.1));
+    background-size: 400% 400%;
+    animation: stilbonGradient 15s ease infinite;
+  }
+
+  /* Loading Spinner */
+  .stilbon-spinner {
+    @apply w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full;
+    animation: stilbonSpin 1s linear infinite;
+  }
+
+  /* Floating Animation */
+  .stilbon-float {
+    animation: stilbonFloat 6s ease-in-out infinite;
+  }
+
+  /* Pulse Animation */
+  .stilbon-pulse {
+    animation: stilbonPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Glow Effect */
+  .stilbon-glow {
+    @apply shadow-lg;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  /* Hover Lift */
+  .stilbon-lift {
+    @apply transition-transform duration-300 ease-out;
+  }
+  
+  .stilbon-lift:hover {
+    @apply transform -translate-y-2;
+  }
+
+  /* Typography */
+  .stilbon-heading {
+    @apply font-display font-black text-transparent bg-clip-text;
+    @apply bg-gradient-to-r from-primary via-accent to-secondary;
+  }
+
+  .stilbon-subheading {
+    @apply font-body font-semibold text-muted-foreground;
+  }
+
+  /* Form Styles */
+  .stilbon-input {
+    @apply w-full px-4 py-3 rounded-xl;
+    @apply bg-card/50 backdrop-blur-sm;
+    @apply border border-border/50;
+    @apply text-foreground placeholder-muted-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/50;
+    @apply focus:border-primary/50;
+    @apply transition-all duration-300;
+  }
+
+  /* Navigation */
+  .stilbon-nav {
+    @apply fixed top-0 left-0 right-0 z-50;
+    @apply bg-background/80 backdrop-blur-md;
+    @apply border-b border-border/50;
+  }
+
+  /* Card Styles */
+  .stilbon-card {
+    @apply stilbon-glass p-6;
+    @apply hover:bg-white/10;
+    @apply transition-all duration-300;
+    @apply hover:scale-105 hover:shadow-2xl;
+  }
+
+  /* Success State */
+  .stilbon-success {
+    @apply text-emerald-400 bg-emerald-400/10;
+    @apply border border-emerald-400/20;
+  }
+
+  /* Error State */
+  .stilbon-error {
+    @apply text-red-400 bg-red-400/10;
+    @apply border border-red-400/20;
+  }
+
+  /* Warning State */
+  .stilbon-warning {
+    @apply text-amber-400 bg-amber-400/10;
+    @apply border border-amber-400/20;
+  }
+
+  /* Info State */
+  .stilbon-info {
+    @apply text-blue-400 bg-blue-400/10;
+    @apply border border-blue-400/20;
+  }
+}
+
+/* Animations */
+@keyframes stilbonGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes stilbonSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes stilbonFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes stilbonPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes stilbonSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes stilbonSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stilbonScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation Classes */
+.animate-stilbon-slide-in {
+  animation: stilbonSlideIn 0.5s ease-out forwards;
+}
+
+.animate-stilbon-slide-up {
+  animation: stilbonSlideUp 0.6s ease-out forwards;
+}
+
+.animate-stilbon-scale {
+  animation: stilbonScale 0.4s ease-out forwards;
+}
+
+/* Responsive Design Helpers */
+@media (max-width: 768px) {
+  .stilbon-mobile-padding {
+    @apply px-4;
+  }
+  
+  .stilbon-mobile-text {
+    @apply text-sm;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .stilbon-no-print {
+    display: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .stilbon-glass {
+    @apply bg-card border-border;
+  }
+  
+  .stilbon-button {
+    @apply bg-primary;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
