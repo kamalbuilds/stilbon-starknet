@@ -9,7 +9,10 @@ import {
 } from './tooltip';
 import { CircleHelp, Plus, RefreshCw } from 'lucide-react';
 import LoadingSpinner from './LoadingSpinner';
-import { VesuEarnPosition, VesuBorrowPosition } from '../../types/VesuPositions';
+import {
+	VesuEarnPosition,
+	VesuBorrowPosition,
+} from '../../types/VesuPositions';
 import { CreatePositionModal } from './modals/CreateVesuPosition';
 
 interface VesuPositionTableProps {

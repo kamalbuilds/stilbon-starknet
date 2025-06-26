@@ -12,8 +12,10 @@ const StilbonLandingPage = () => {
 	const [email, setEmail] = useState<string>('');
 	const [submitted, setSubmitted] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(false);
-	const waitlistRef = useRef<HTMLDivElement>(null);
-	const heroRef = useRef<HTMLDivElement>(null);
+	const waitlistRef = useRef<HTMLDivElement>(null!);
+	const heroRef = useRef<HTMLDivElement>(null!);
+	const featuresRef = useRef<HTMLDivElement>(null!);
+	const statsRef = useRef<HTMLDivElement>(null!);
 
 	const { scrollYProgress } = useScroll({
 		target: heroRef,
@@ -47,8 +49,8 @@ const StilbonLandingPage = () => {
 		}
 	};
 
-	const scrollToWaitlist = () => {
-		waitlistRef.current?.scrollIntoView({ behavior: 'smooth' });
+	const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => () => {
+		ref.current?.scrollIntoView({ behavior: 'smooth' });
 	};
 
 	const features = [
@@ -80,11 +82,17 @@ const StilbonLandingPage = () => {
 
 	return (
 		<div className="flex flex-col min-h-screen">
-			<Navbar />
+			<Navbar 
+				scrollToHero={scrollToSection(heroRef)}
+				scrollToFeatures={scrollToSection(featuresRef)}
+				scrollToWaitlist={scrollToSection(waitlistRef)}
+				scrollToStats={scrollToSection(statsRef)}
+			/>
 
 			{/* Hero Section */}
 			<motion.section
 				ref={heroRef}
+				id="hero"
 				className="relative min-h-screen flex items-center justify-center overflow-hidden"
 				style={{ y, opacity }}
 			>
@@ -171,8 +179,8 @@ const StilbonLandingPage = () => {
 						transition={{ duration: 0.8, delay: 0.8 }}
 					>
 						<motion.button
-							onClick={scrollToWaitlist}
-							className="stilbon-button text-lg px-8 py-4"
+							onClick={scrollToSection(waitlistRef)}
+							className="stilbon-button text-lg px-8 py-4 !text-white !font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 						>
@@ -206,7 +214,11 @@ const StilbonLandingPage = () => {
 			</motion.section>
 
 			{/* Features Section */}
-			<section className="py-24 px-4">
+			<section
+				ref={featuresRef}
+				id="features"
+				className="py-24 px-4 bg-black/70"
+			>
 				<div className="max-w-7xl mx-auto">
 					<motion.div
 						className="text-center mb-16"
@@ -220,7 +232,7 @@ const StilbonLandingPage = () => {
 								Intelligent DeFi Platform
 							</span>
 						</h2>
-						<p className="text-xl text-gray-400 max-w-3xl mx-auto">
+						<p className="text-xl text-gray-200 max-w-3xl mx-auto">
 							Experience the future of decentralized finance with
 							our cutting-edge technology and AI-powered insights.
 						</p>
@@ -246,7 +258,7 @@ const StilbonLandingPage = () => {
 									<h3 className="text-xl font-semibold mb-3 text-white">
 										{feature.title}
 									</h3>
-									<p className="text-gray-400 leading-relaxed">
+									<p className="text-gray-200 leading-relaxed">
 										{feature.description}
 									</p>
 								</div>
@@ -259,7 +271,8 @@ const StilbonLandingPage = () => {
 			{/* Waitlist Section */}
 			<section
 				ref={waitlistRef}
-				className="py-24 px-4 relative overflow-hidden"
+				id="waitlist"
+				className="py-24 px-4 relative overflow-hidden bg-black/80"
 			>
 				<div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10" />
 
@@ -294,7 +307,7 @@ const StilbonLandingPage = () => {
 									placeholder="Enter your email address"
 									required
 									disabled={loading}
-									className="nexus-input flex-1"
+									className="stilbon-input flex-1 !text-white !placeholder-gray-400"
 								/>
 								<motion.button
 									type="submit"
@@ -334,7 +347,11 @@ const StilbonLandingPage = () => {
 			</section>
 
 			{/* Stats Section */}
-			<section className="py-16 px-4">
+			<section
+				ref={statsRef}
+				id="stats"
+				className="py-16 px-4 bg-black/90"
+			>
 				<div className="max-w-6xl mx-auto">
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-8">
 						{[
@@ -357,7 +374,7 @@ const StilbonLandingPage = () => {
 								<div className="text-3xl md:text-4xl font-black nexus-gradient-text mb-2">
 									{stat.value}
 								</div>
-								<div className="text-gray-400 text-sm md:text-base">
+								<div className="text-gray-200 text-sm md:text-base">
 									{stat.label}
 								</div>
 							</motion.div>

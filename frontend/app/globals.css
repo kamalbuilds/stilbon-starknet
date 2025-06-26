@@ -162,10 +162,11 @@ body {
     @apply hover:shadow-lg hover:shadow-primary/25;
     @apply hover:scale-105 active:scale-95;
     @apply border border-white/20;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.25), 0 0px 8px rgba(0,0,0,0.15);
   }
 
   .stilbon-button::before {
-    @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0;
+    @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0;
     @apply transform -skew-x-12 -translate-x-full;
     @apply transition-transform duration-700;
     content: '';

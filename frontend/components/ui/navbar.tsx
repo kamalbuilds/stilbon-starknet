@@ -8,9 +8,20 @@ import { useState, useEffect } from 'react';
 // import { signOut } from 'firebase/auth';
 // import { useAtom } from 'jotai';
 import { Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 // import WalletConnector from './connectWallet';
 
-export default function Navbar() {
+export default function Navbar({
+	scrollToHero,
+	scrollToFeatures,
+	scrollToWaitlist,
+	scrollToStats,
+}: {
+	scrollToHero?: () => void;
+	scrollToFeatures?: () => void;
+	scrollToWaitlist?: () => void;
+	scrollToStats?: () => void;
+}) {
 	// const [openLogin, setOpenLogin] = useState<boolean>(false);
 	// const [user, setUser] = useAtom(activeUser);
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -143,8 +154,11 @@ export default function Navbar() {
 				</div>
 			</div> */}
 			{/* Desktop Navigation */}
-			<nav
-				className={`hidden md:flex fixed top-0 left-0 right-0 z-40 px-6 py-8 items-center justify-center font-bodyRegular transition-transform duration-300 ease-in-out ${
+			<motion.nav
+				initial={{ y: -60, opacity: 0 }}
+				animate={{ y: 0, opacity: 1 }}
+				transition={{ duration: 0.5 }}
+				className={`hidden md:flex fixed top-0 left-0 right-0 z-40 px-6 py-6 items-center justify-center font-bodyRegular backdrop-blur-md bg-black/60 shadow-lg transition-all duration-300 ease-in-out ${
 					visible ? 'transform-none' : '-translate-y-full'
 				}`}
 			>
@@ -160,27 +174,13 @@ export default function Navbar() {
 					/>
 					<p className="font-logo px-3">StilBon</p>
 				</Link>
-				{/* <div className="flex space-x-6">
-					<Link
-						href="/calculators"
-						className="text-gray-400 hover:text-white transition-colors duration-300"
-					>
-						Calculators
-					</Link>
-					<Link
-						href="/mypositions"
-						className="text-gray-400 hover:text-white transition-colors duration-300"
-					>
-						Positions
-					</Link>
-					<Link
-						href="/pools"
-						className="text-gray-400 hover:text-white transition-colors duration-300"
-					>
-						Pools
-					</Link>
+				<div className="flex space-x-8">
+					<button onClick={scrollToHero} className="text-gray-200 hover:text-white font-semibold transition-colors duration-200">Home</button>
+					<button onClick={scrollToFeatures} className="text-gray-200 hover:text-white font-semibold transition-colors duration-200">Features</button>
+					<button onClick={scrollToWaitlist} className="text-gray-200 hover:text-white font-semibold transition-colors duration-200">Waitlist</button>
+					<button onClick={scrollToStats} className="text-gray-200 hover:text-white font-semibold transition-colors duration-200">Stats</button>
 				</div>
-				<div className="absolute right-6 flex items-center space-x-4">
+				{/* <div className="absolute right-6 flex items-center space-x-4">
 					<WalletConnector />
 					{user !== undefined ? (
 						<div className="flex items-center space-x-4">
@@ -213,7 +213,7 @@ export default function Navbar() {
 						</button>
 					)}
 				</div> */}
-			</nav>
+			</motion.nav>
 
 			{/* Login Modal */}
 			{/* <LoginModal isOpen={openLogin} onClose={setOpenLogin} /> */}
