@@ -1,0 +1,29 @@
+{
+	"name": "stilbon-backend",
+	"private": true,
+	"scripts": {
+		"dev": "prettier --write \"./**/*.{js,jsx,mjs,cjs,ts,tsx,json}\" & next dev",
+		"build": "next build",
+		"start": "next start",
+		"pretty": "prettier --write \"./**/*.{js,jsx,mjs,cjs,ts,tsx,json}\""
+	},
+	"dependencies": {
+		"@supabase/supabase-js": "^2.50.2",
+		"cors": "^2.8.5",
+		"next": "latest",
+		"react": "^18",
+		"react-dom": "^18"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"autoprefixer": "^10.0.1",
+		"eslint": "^8.57.1",
+		"eslint-config-next": "14.0.4",
+		"postcss": "^8",
+		"prettier": "^3.5.3",
+		"tailwindcss": "^3.3.0",
+		"typescript": "^5"
+	}
+}
