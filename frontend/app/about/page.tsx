@@ -82,14 +82,14 @@ const About = () => {
 						src="/images/StilBonLogo.png"
 						width={500}
 						height={500}
-						alt="Undef!ned logo"
+						alt="stilbon logo"
 						className="object-contain"
 						priority
 					/>
 				</div>
 
 				<h1 className="text-4xl md:text-5xl font-light text-white mb-12">
-					Undef!ned
+					Stilbon
 				</h1>
 
 				<p className="text-gray-400 text-lg md:text-xl mb-6 font-light">

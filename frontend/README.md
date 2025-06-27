@@ -46,7 +46,7 @@ Follow these steps to set up and run StilBon locally:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/undefined-org/stilbon.git
+git clone https://github.com/kamalbuilds/stilbon.git
 cd stilbon
 ```
 
@@ -133,5 +133,3 @@ We welcome contributions to StilBon! Follow these steps:
 StilBon is licensed under the [MIT License](LICENSE).
 
 ---
-
-For further assistance or inquiries, contact us at support@undefined.org.
